@@ -16,36 +16,30 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
   }
-div {
+/* div {
   border-radius: 5px;
-  background-color: #f2f2f2;
-  padding-bottom: 10px;
   margin: auto;
-  }
-.container{
+  padding: 10px 0;
+  } */
+/* .container{
     margin-top: 3rem;
-    /* margin-bottom: 3rem; */
+    margin-bottom: 3rem;
     text-align: center;
     border-radius: 5px;
-}
-form.example{
-    margin:auto;
-    max-width:300px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
+} */
+
 form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    float: left;
-    width: 80%;
+    width: 20%;
     background: #f1f1f1;
     margin-bottom: 1rem;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    padding: 1rem;
+  }
+  form.example{
+    text-align: center;
   }
   
   form.example input[type=search] {
@@ -55,13 +49,11 @@ form.example input[type=text] {
     background: #fbef4a;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 50%;
     padding: 10px;
     border-left:1px solid rgb(128, 128, 128);
     cursor: pointer;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    
   }
   form.example::after {
     content: "";
