@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/loginform.css">
 
 
 
@@ -20,29 +20,28 @@
         <title>Tracking Demo</title>
     </head>
     <body>
-        <div class="container h-100 mt-5">
-            <form class="form" id="login">
-                <h1 class="form__title">Login</h1>
-                <div class="form__message form__message--error"></div>
-                <div class="form__input-group">
-                    <label for="" class="mb-1 fs-5"><strong>Enter Emplyoee Code</strong></label>
-                    <input type="text" class="form__input" autofocus placeholder="">
-                    <div class="form__input-error-message"></div>
-                </div>
-                <div class="form__input-group mb-1 fs-5">
-                    <label for="" class="mb-1"><strong>Enter Password</strong></label>
-                    <input type="password" class="form__input" autofocus placeholder="">
-                    <div class="form__input-error-message"></div>
-                </div>
-                <button class="form__button bg-warning text-white mt-3 mb-2" type="submit">Sign In</button>
-                <p class="form__text mt-2">
-                    <a href="#" class="form__link">Forgot your password?</a>
-                </p>
-                
-            </form>
+        <div class="cont">
+        
+            <div class="form">
+                <form action="">
+                    <div class="avatar">
+                        <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="avatar">
+                    </div>
+                    <h1>Login</h1>
+                    <label for="" ><strong>Enter Emplyoee Code</strong></label>
+                    <input type="text"class="user mt-1" placeholder=""/>
+                    <label for="" ><strong>Enter Password</strong></label>
+                    <input type="password" class="pass mt-1"placeholder=""/>
+                    <div class="text-center">
+                        <button class="btn btn-lg btn-warning shadow text-white" type="submit">Login</button>
+                    </div>
+                    
+                </form>
+            </div>
+        
+        
+        
         </div>
-
-    
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
