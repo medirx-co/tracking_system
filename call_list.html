@@ -13,6 +13,8 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/call.css">
+        
         <!-- Datatable CSS -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
@@ -21,20 +23,34 @@
         <title>Tracking Demo</title>
     </head>
     <body>
-        <div class="card mt-4 ">
+        <div class="card mt-4 mx-4 my-4">
             <div class="card-header">
-                <div class="nav">
-                    <a href=""><img src=""></a>
-                    <ul>
-                      <li><a href="#" class="nav-link"><strong>Analysis</strong></a></li>
-                      <li><a href="#" class="nav-link"><strong>Call Requests</strong></a></li>
-                      <li><a href="#" class="nav-link"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png"></a></li>
-                    </ul>
-                </div>
+                <nav class="navbar navbar-expand-sm">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"><img src="" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link fs-5" href="#"><strong>Analysis</strong></a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link fs-5" href="#"><strong>Call Request</strong></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="navbar-brand" href="#"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
                 
                    <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-responsive-sm" style="width: 845px;">
+                            <table class="table table-responsive-sm" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>S.No.</th>

@@ -1,0 +1,40 @@
+/* Call List CSS */
+.navbar{
+    background: #252c6a;
+    height: 70px; /* set same as height & line-height below */
+  }
+  .nav li {
+    display: inline-block;
+    list-style: none;
+    padding: 0 40px; /* "0" sets top and bottom padding to none */
+    font-weight: 200px;
+    font-size: 20px;
+  }
+  
+  .nav li:hover {
+    background: rgb(229, 221, 221);
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Table CSS */
+  
+  th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  h1{
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  /* tr:nth-child(even){
+    background-color: #f2f2f2
+  } */
+  tr:hover {
+    background-color: #efbcbc;
+  }
