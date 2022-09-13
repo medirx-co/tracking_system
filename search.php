@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/loginform.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/loginform.css">
 
         <!-- Datatable CSS -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
@@ -25,7 +25,7 @@
     <body>
         <div class="p-3">
             <div class="w-100">
-                <img src="image/1.jpg" alt="" style="width:inherit;">
+                <img src="/image/1.jpg" alt="" style="width:inherit;">
             </div>
             <div class="content">
                 <div class="form mt-5">
@@ -34,7 +34,6 @@
                         <div class="text-center">
                             <button class="btn btn-lg btn-warning shadow text-white" type="submit">Serach</button>
                         </div>
-                        
                     </form>
                 </div>
             </div>
@@ -44,7 +43,7 @@
     
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         
         <!-- Datatable Js -->
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
