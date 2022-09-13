@@ -23,7 +23,7 @@
         <title>Tracking Demo</title>
     </head>
     <body>
-        <div class="card mt-4 mx-4 my-4">
+        <div class="card mt-4 mx-5 my-4">
             <div class="card-header">
                 <a class="" href="#"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" style="float:right;"></a>                <h1 class="carde-title text-center mt-3">Nearest Nutritional Advisor</h1>
                    <div class="card-body">
