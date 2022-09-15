@@ -25,9 +25,6 @@
     </head>
     <body>
         <?php
-        if(isset($_REQUEST['submit'])) {           
-            header('location: na_list.php');
-        }
         ?>
         <div class="p-3 pb-5">
             <div class="w-100">
@@ -35,7 +32,7 @@
             </div>
             <div class="content row justify-content-center rounded">
                 <div class="form mt-5 col-12 col-md-4">
-                    <form action="" method="post">
+                    <form action="na_list.php" method="post">
                         <div class="form-group">
                             <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode"/>
 

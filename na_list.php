@@ -1,3 +1,15 @@
+<?php
+print_r($_REQUEST);
+include_once('functions/helper_function.php');
+$pincode = $_POST['pincode'];
+$whereClause = "WHERE pincode = $pincode";
+try {
+    //code...
+    print_r(getRows('nutrition_advisor',$whereClause));
+} catch (Throwable $th) {
+    //throw $th;
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
