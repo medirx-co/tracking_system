@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -13,29 +14,34 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="./css/style.css">
-        <!-- <link rel="stylesheet" href ="css/loginform.css"> -->
+        <link rel="stylesheet" href ="css/loginform.css">
 
         <!-- Datatable CSS -->
         <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> -->
 
 
 
-        <title>Tracking Demo</title>
+    <title>Tracking Demo</title>
     </head>
     <body>
+        <?php
+        if(isset($_REQUEST['submit'])) {           
+            header('location: na_list.php');
+        }
+        ?>
         <div class="p-3 pb-5">
             <div class="w-100">
                 <img src="/image/1.jpg" alt="" style="width:inherit;">
             </div>
-            <div class="content row justify-content-center">
+            <div class="content row justify-content-center rounded">
                 <div class="form mt-5 col-12 col-md-4">
                     <form action="" method="post">
                         <div class="form-group">
-                            <input type="number"class="shadow mt-1 form-control" placeholder="Enter Pincode"/>
+                            <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode"/>
 
                         </div>
-                        <div class="text-center">
-                            <button class="btn btn-lg btn-warning shadow text-white w-100" type="submit">Search</button>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-lg btn-warning shadow text-white w-100 form-control"  name="submit"type="submit">Search</button>
                         </div>
                     </form>
                 </div>
