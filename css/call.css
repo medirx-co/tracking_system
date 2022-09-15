@@ -20,7 +20,13 @@
   }
   
   /* Table CSS */
-  
+   .card{
+    justify-content: center;
+    border: none;
+    margin-left: 8%;
+   }
+   
+
   th, td {
     padding: 8px;
     text-align: center;
@@ -31,29 +37,30 @@
     margin-top: 2rem;
   }
   
-  /* tr:nth-child(even){
+  tr:nth-child(even){
     background-color: #f2f2f2
-  } */
+  }
   tr:hover {
     background-color:gray;
   }
   @media only screen and (min-width : 280px) {
     .card{ width: 90%;}
     .nav-link{color: #fff;}
+    /* .action{min-width:45rem;} */
   }
   
   @media only screen and (min-width : 480px) {
-    .card{ width: 60%;}
+    .card{ width: 86%;}
     .nav-link{color: #fff;}
   }
   
-  @media only screen and (min-width : 768px) {
-    .card{ width: 40%;}
+  /* @media only screen and (min-width : 768px) {
+    .card{ width: 943px;}
     .nav-link{ color: #fff;}
-  }
+  } */
   
-  @media only screen and (min-width : 992px) {
-    .card{ width: 95%;}
+  /* @media only screen and (min-width : 992px) {
+    .card{ width: 980px;}
     .nav-link{ color: #fff;}
-  }
+  } */
   
