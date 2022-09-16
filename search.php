@@ -34,7 +34,7 @@
                 <div class="form mt-5 col-12 col-md-4">
                     <form action="na_list.php" method="post">
                         <div class="form-group">
-                            <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode"/>
+                            <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode" required/>
 
                         </div>
                         <div class="text-center mt-3">

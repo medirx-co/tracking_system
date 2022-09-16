@@ -1,13 +1,23 @@
 <?php
-print_r($_REQUEST);
+ob_start();
+session_start();
+$msg = $_SESSION['msg'] ?? null;
+unset($_SESSION['msg']);
+// print_r($_REQUEST);
 include_once('functions/helper_function.php');
-$pincode = $_POST['pincode'];
-$whereClause = "WHERE pincode = $pincode";
 try {
+    $pincode = $_POST['pincode'] ?? throw new Exception("Empty");
+    $whereClause = "WHERE pincode = $pincode";
     //code...
-    print_r(getRows('nutrition_advisor',$whereClause));
+    $result = getRows('nutrition_advisor',$whereClause);
 } catch (Throwable $th) {
     //throw $th;
+    // print_r($th);
+    if ($th->getMessage() == 'Empty') {
+        $_SESSION['msg'] = "Please, enter pincode";
+        // echo "<script>alert('error')</script>";
+        header('Location:search.php');
+    }
 }
 ?>
 <!doctype html>
@@ -41,6 +51,11 @@ try {
                 <h4 class="carde-title text-center mt-3">Nearest Nutritional Advisor</h4>
                     <div class="card-body">
                         <div class="table-responsive">
+                            <?php
+                                if(empty($result)): ?>
+                                    <h1>No Nutritional Advisor is availabe at this <b style = 'color: blue'><?php echo  $pincode ?><b></h1>
+                               <?php endif;
+                            ?>
                             <table class="table hover-table table-responsive-sm">
                                 <thead>
                                     <tr>
@@ -77,6 +92,7 @@ try {
                                     </tr>
                                 </tbody>
                             </table>
+                        
                         </div>
                     </div>
                 
