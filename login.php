@@ -18,29 +18,43 @@
 
 
         <title>Tracking Demo</title>
+        <style>
+            body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
     </head>
     <body>
-        <div class="cont">
-        
-            <div class="form">
-                <form action="" method="post">
-                    <div class="avatar">
-                        <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="avatar">
-                    </div>
-                    <h1>Login</h1>
-                    <label for="" ><strong>Enter Emplyoee Code</strong></label>
-                    <input type="text"class="user mt-1" placeholder=""/>
-                    <label for="" ><strong>Enter Password</strong></label>
-                    <input type="password" class="pass mt-1"placeholder=""/>
-                    <div class="text-center">
-                        <button class="btn btn-lg btn-warning shadow text-white" type="submit">Login</button>
-                    </div>
-                    
-                </form>
+        <div class="row justify-content-center align-items-center" style="height: 100vh">
+            
+            <div class="cont col-md-6 col-10 mb-0">        
+                <div class="form">
+                    <form action="" method="post">
+                        <div class="avatar shadow">
+                            <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="avatar">
+                        </div>
+                        <h3 class="text-center mt-5 mb-3 text-primary">Login</h3>
+                        <div class="pt-3">
+                            <div class="form-group my-3">
+                                <label for="" >Enter Emplyoee Code</label>
+                                <input type="text"class="form-control mt-1" placeholder=""/>
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="" >Enter Password</label>
+                                <input type="password" class="mt-1 form-control"placeholder=""/>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-warning shadow text-white" type="submit">Login</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>    
             </div>
-        
-        
-        
+            <footer class="text-center mb-5">
+                <small>Powered by</small>
+                <p><img src="images/medirx-logo.png" width="50"></p>
+            </footer>
         </div>
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
