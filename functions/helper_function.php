@@ -16,15 +16,28 @@ function getRows($tableName, $whereclause = null)
     $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     return $result;
 }
-
-function add($tableName, $parameters, $values)
+function getRow($tableName, $whereclause = null)
 {
+    global $conn;
+    # code...
+    $sql = "SELECT * FROM $tableName $whereclause";
+    $result = $conn->query($sql)->fetch_assoc();
+    return $result;
+}
+function add($tableName, $parameters)
+{
+    $keys = implode(',' , array_keys($parameters));
+
+    $values = implode("', '" , array_values($parameters));
+    // echo $values;
     # code...
     global $conn;
-    $sql = "INSERT INTO $tableName $parameters VALUES $values";
+    $sql = "INSERT INTO $tableName ($keys) VALUES ('$values')";
     $result = $conn->query($sql);
     $result = $conn->insert_id;
-    return $result;
+    $temp = ["query"=>$sql];
+    $temp["result"] = $result;
+    return $temp;
 }
 
 function update($tableName, array $parameters)
