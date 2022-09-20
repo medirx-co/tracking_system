@@ -6,7 +6,7 @@
 .user-profile{
     position: absolute;
     border-radius: 50%;
-    background:  blue;
+    background:  #7986cb8f;
     top: -13%;
     left: 40%;
     z-index: 4;
@@ -24,10 +24,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
 }
-h2{
+.na_name{
     font-family: 'Alegreya', serif;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 4rem;
     font-size: 25px;
 }
 .logo{

@@ -32,13 +32,13 @@
             </div>
             <div class="content row justify-content-center rounded">
                 <div class="form mt-5 col-12 col-md-4">
-                    <form action="na_list.php" method="post">
+                    <form action="advisor.php" method="get">
                         <div class="form-group">
                             <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode" required/>
 
                         </div>
                         <div class="text-center mt-3">
-                            <button class="btn btn-lg btn-warning shadow text-white w-100 form-control"  name="submit"type="submit">Search</button>
+                            <button class="btn btn-lg btn-warning shadow text-white w-100 form-control" type="submit">Search</button>
                         </div>
                     </form>
                 </div>
