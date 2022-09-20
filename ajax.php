@@ -36,6 +36,12 @@ try {
         $result = getRow("`[NUTRITIONAL ADVISOR]`" , $whereClause);       
         $response['result'] = $result ?? throw new Exception("Invalid Credentials");
     }
+    if($component == 'call_list') {
+        // $data = explode(",", $_REQUEST['data']);
+        $whereClause = "WHERE na_id = '".$_REQUEST['id']."'";
+        $result = getRows("`[CALL RECORDS]`" , $whereClause);       
+        $response['result'] = $result ?? throw new Exception("No data found");
+    }
 
     $response['status'] = 'success';
 } catch (\Throwable $th) {

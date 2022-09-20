@@ -1,3 +1,17 @@
+<?php
+session_start();
+unset($_SESSION["msg"]);
+// print_r($_SESSION);
+$id = $_SESSION['user'];
+include_once('functions/helper_function.php');
+$data = [
+    'component' => 'call_list',
+    'id' => $id
+];
+// print_r($data);
+$response = curlRequest($data);
+$response = json_decode($response);
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -35,7 +49,7 @@
                     <a class="nav-link" href="#">Analysis</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Call Request</a>
+                    <a class="nav-link" href="#">Call List</a>
                   </li>
                   <li class="nav-item float-right">
                     <a class="navbar-link" href="#" style="vertical-align:sub"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" width="30"></a>
@@ -53,32 +67,27 @@
                                 <thead>
                                     <tr>
                                         <th>S.No.</th>
-                                        <th>Nutritional Advisor Name</th>
+                                        <th>Chemist Name</th>
                                         <th>Call Request</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Jill</td>
-                                        <td>Smith</td>
-                                        <td></td>
-                                        <td>
-                                            <div>
-                                                <a href=""><i class="bi bi-eye"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jill</td>
-                                        <td>Smith</td>
-                                        <td></td>
-                                        <td>
-                                            <div>
-                                                <a href=""><i class="bi bi-eye"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                        foreach ($response->result as $index => $row):?>
+                                            <tr>
+                                                <td><?php echo ++$index;?></td>
+                                                <td><?php echo $row->chemist_name?></td>
+                                                <td><?php echo $row->date_of_call_request?></td>
+                                                <td>
+                                                    <div>
+                                                        <a href="call_list.php?id=<?php echo $row->id; ?>"><i class="bi bi-eye"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>                                        
+                                       <?php endforeach;
+                                    ?>
+                                    
                                 </tbody>
                             </table>
                         </div>

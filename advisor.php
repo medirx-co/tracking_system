@@ -3,7 +3,7 @@ ob_start();
 session_start();
 $msg = $_SESSION['msg'] ?? null;
 unset($_SESSION['msg']);
-print_r($_REQUEST);
+// print_r($_REQUEST);
 include_once('functions/helper_function.php');
 
 try {
