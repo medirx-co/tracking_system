@@ -25,22 +25,20 @@
         </style>
     </head>
     <body>
-        <div class="row justify-content-center align-items-center" style="height: 100vh">
+        <div class="row justify-content-center align-items-center mt-5" style="height: 100vh">
             
-            <div class="cont col-md-6 col-10 mb-0" style="background: lightgray;">        
+            <div class="shadow col-md-6 col-8 mb-0 p-3">        
                 <div class="form">
-                    <form action="" method="post">
+                    <form action="" method="">
                         <h3 class="text-center mt-3 mb-3 text-dark">Have you called back ?</h3>
                         <div class="pt-3">
-                            <div class="row justify-space-between align-items-center mx-4">
-                                <div class="col-6">
+                            <div class="row justify-content-center align-items-center mx-4">
+                                <div class="col-8 text-center">
                                     <button class="btn btn-success shadow text-white" type="submit">Yes</button>
-                                </div>
-                                <div class="col-6">
-                                    <button class="btn btn-danger shadow text-white" type="submit">No</button>
+                                    <button class="btn btn-danger shadow text-white" type="button" onclick="myFunction()">No</button>
                                 </div>
                             </div>
-                            <div class="form-group my-2">
+                            <div class="form-group" id="myDIV" style="display: none;">
                                 <label for="" >Reason(optional)</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
@@ -61,7 +59,17 @@
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+        
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
         
     </body>
 </html>
