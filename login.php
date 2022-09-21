@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-// print_r($_REQUEST);
+include_once('functions/helper_function.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,38 +43,16 @@ session_start();
         );
     
         
-        $ch = curl_init();
-        $curlConfig = [
-            CURLOPT_URL            		=> "http://localhost/ajax.php",
-            CURLOPT_POST           => true,
-            // CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_RETURNTRANSFER 		=> true,
-            // CURLOPT_ENCODING 			=> ''
-            // CURLOPT_MAXREDIRS 			=> 10,
-            // CURLOPT_TIMEOUT 			=> 0,
-            // CURLOPT_HEADER				=> 0,
-            // CURLOPT_HTTPHEADER			=> $headers,
-            CURLOPT_FOLLOWLOCATION 		=> true,
-            CURLOPT_HTTP_VERSION 		=> CURL_HTTP_VERSION_1_1,
-            // CURLOPT_CUSTOMREQUEST 		=> 'GET',
-        
-        // if ($isPOST) {
-        //     $curlConfig[CURLOPT_CUSTOMREQUEST] = 'POST';
-        //     $curlConfig[CURLOPT_POSTFIELDS] = $postFields;
-        // }
-        CURLOPT_POSTFIELDS     => $data,
-        ];
-        curl_setopt_array($ch, $curlConfig);
-        $result = curl_exec($ch);
-        curl_close($ch);
+        $response = curlRequest($data);
         // echo "hi";
-       $result = json_decode($result);
-        // if($result) {
-        //     header('Location:call_list.php');
-        // } else {
-        //     echo "<script>alert('Invalid')</script>";
-        // }
-        print_r($result);
+        $response = json_decode($response);
+        if($response->status == 'success') {
+            $_SESSION['user'] = $response->result->id;
+            header('Location:call_list.php');
+        } else {
+            echo "<script>alert('Invalid')</script>";
+        }
+        // print_r($response->result->id);
     }
         
     

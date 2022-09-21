@@ -64,4 +64,34 @@ function keyVlaues(array $parameters = null)
     return $string;
 }
 // echo keyVlaues();
+
+function curlRequest($data)
+{
+    # code...
+    $ch = curl_init();
+        $curlConfig = [
+            CURLOPT_URL            		=> "http://localhost/ajax.php",
+            CURLOPT_POST           => true,
+            // CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_RETURNTRANSFER 		=> true,
+            // CURLOPT_ENCODING 			=> ''
+            // CURLOPT_MAXREDIRS 			=> 10,
+            // CURLOPT_TIMEOUT 			=> 0,
+            // CURLOPT_HEADER				=> 0,
+            // CURLOPT_HTTPHEADER			=> $headers,
+            CURLOPT_FOLLOWLOCATION 		=> true,
+            CURLOPT_HTTP_VERSION 		=> CURL_HTTP_VERSION_1_1,
+            // CURLOPT_CUSTOMREQUEST 		=> 'GET',
+        
+        // if ($isPOST) {
+        //     $curlConfig[CURLOPT_CUSTOMREQUEST] = 'POST';
+        //     $curlConfig[CURLOPT_POSTFIELDS] = $postFields;
+        // }
+        CURLOPT_POSTFIELDS     => $data,
+        ];
+        curl_setopt_array($ch, $curlConfig);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+}
 ?>
