@@ -1,3 +1,33 @@
+<?php
+
+print_r($_REQUEST);
+ob_start();
+include_once('functions/helper_function.php');
+if(isset($_REQUEST['isCallBack'])) {
+        $data = [
+            'id' => $_REQUEST['id'],
+            'isCallBack' => $_REQUEST['isCallBack'],
+            'component' => "callBackStatus",
+        ];
+        // $data = implode(',' , $data);
+        print_r($data);
+        $headers = array(
+            // 'Cookie: PHPSESSID='.session_id(),
+        );
+    
+        
+        $response = curlRequest($data);
+        // echo "hi";
+        $response = json_decode($response);
+        if($response->status == 'success') {
+            header('Location: call_list.php');
+        } else {
+            echo "<script>alert('Invalid')</script>";
+        }
+        // print_r($response);
+    }
+
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -27,26 +57,17 @@
     <body>
         <div class="row justify-content-center align-items-center mt-5" style="height: 100vh">
             
-            <div class="shadow col-md-6 col-8 mb-0 p-3">        
+            <div class="shadow col-md-4 col-8 mb-0 p-5">        
                 <div class="form">
-                    <form action="" method="">
+                    <form action="" method="post">
                         <h3 class="text-center mt-3 mb-3 text-dark">Have you called back ?</h3>
                         <div class="pt-3">
                             <div class="row justify-content-center align-items-center mx-4">
-                                <div class="col-8 text-center">
-                                    <button class="btn btn-success shadow text-white" type="submit">Yes</button>
-                                    <button class="btn btn-danger shadow text-white" type="button" onclick="myFunction()">No</button>
+                                <div class="col-6 mt-3 text-center">
+                                    <button type="submit" class="btn btn-success shadow text-white w-100 mb-2" name="isCallBack" value="1">Yes</button>
+                                    <button type="submit" class="btn btn-danger shadow text-white w-100" name="isCallBack" value="0">No</button>
                                 </div>
                             </div>
-                            <div class="form-group" id="myDIV" style="display: none;">
-                                <label for="" >Reason(optional)</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                    <form action="">
-                        <div class="text-center mt-3">
-                            <input class="btn btn-warning shadow text-white" type="submit">
                         </div>
                     </form>
                 </div>    

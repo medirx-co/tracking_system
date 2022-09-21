@@ -48,6 +48,24 @@ try {
         $result = getRows("`[CALL RECORDS]`" , $whereClause);       
         $response['result'] = $result ?? throw new Exception("No data found");
     }
+    
+
+    if($component == 'callBackStatus') {
+        // $data = explode(",", $_REQUEST['data']);
+        $whereClause = " WHERE id = '".$_REQUEST['id']."'";
+        if($_REQUEST['isCallBack'] == '1'){
+            $parameteres = [
+                'call_back_date' =>  date("Y-m-d H:i:s"),
+            ];
+        } 
+        else {
+            $parameteres = [
+                'call_back_date' =>  null,
+            ];
+        };
+        $result = update("call_records" , $parameteres, $whereClause);       
+        $response['result'] = $result ?? throw new Exception("No data found");
+    }
 
     if($component == 'all_records') {
         // // $data = explode(",", $_REQUEST['data']);

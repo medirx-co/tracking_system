@@ -47,25 +47,27 @@ function add($tableName, $parameters)
     return $temp;
 }
 
-function update($tableName, array $parameters)
+function update($tableName, array $parameters, $whereClause = null)
 {
 # code...
     $key_value = keyVlaues($parameters);
     global $conn;
-    $sql = "UPDATE $tableName SET $key_value";
+    $sql = "UPDATE $tableName SET $key_value $whereClause";
     $result = $conn->query($sql);
-    $result = $conn->insert_id;
+    $result = $conn->affected_rows;
+    // $result['sql'] = $sql;
     return $result;
 }
 function keyVlaues(array $parameters = null)
 {
     # code...
-    $parameters = ['name' => 'veena', 'address' => 'bachupally'];
+    // $parameters = ['name' => 'veena', 'address' => 'bachupally'];
     // $result = ", name = 'veena' , address = 'bachupally'"
     $string = "";
     foreach ($parameters as $key => $value) {
         # code...
-        $string .= ", $key = '$value'" ;
+        if (empty($value)) $string .= ", $key = null" ;
+        else $string .= ", $key = '$value'" ;
     }
     $string = substr($string, 2);
     return $string;

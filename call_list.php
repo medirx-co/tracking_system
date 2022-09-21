@@ -8,10 +8,15 @@ $data = [
     'component' => 'call_list',
     'id' => $id
 ];
+
 // print_r($data);
 $response = curlRequest($data);
 $response = json_decode($response);
-
+if($response->status == 'success') {
+    // header('Location: call_list.php');
+} else {
+    echo "<script>alert('Invalid')</script>";
+}
 
 ?>
 <!doctype html>
@@ -39,7 +44,7 @@ $response = json_decode($response);
         <title>Tracking Demo</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark shadow">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark shadow fixed">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Logo</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -48,13 +53,10 @@ $response = json_decode($response);
               <div class="collapse navbar-collapse justify-content-md-end" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Analysis</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Call List</a>
+                    <a class="nav-link" href="call_list.php">Call List</a>
                   </li>
                   <li class="nav-item float-right">
-                    <a class="navbar-link" href="#" style="vertical-align:sub"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" width="30"></a>
+                    <a class="navbar-link" href="logout.php?xyiudyd" style="vertical-align:sub"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" width="30"></a>
                   </li>    
                 </ul>
               </div>
@@ -62,12 +64,7 @@ $response = json_decode($response);
           </nav>
 
         
-            <?php 
-                if(isset($_REQUEST['id'])) {
-                    include('call_back_form.php');
-                }
             
-            else{ ?>
 
                    
           <div class="px-4 my-5">
@@ -80,6 +77,7 @@ $response = json_decode($response);
                                         <th>S.No.</th>
                                         <th>Chemist Name</th>
                                         <th>Call Request</th>
+                                        <th>Call Back Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -90,9 +88,10 @@ $response = json_decode($response);
                                                 <td><?php echo ++$index;?></td>
                                                 <td><?php echo $row->chemist_name?></td>
                                                 <td><?php echo $row->date_of_call_request?></td>
+                                                <td class="<?php echo ($row->call_back_date) ?? "text-danger fw-bold"  ?>"><?php echo ($row->call_back_date) ?? "No Call Back"  ?></td>
                                                 <td>
                                                     <div>
-                                                        <a href="call_list.php?id=<?php echo $row->id; ?>"><i class="bi bi-eye"></i></a>
+                                                        <a href="call_back_form.php?id=<?php echo $row->id; ?>"><i class="bi bi-eye"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>                                        
@@ -107,8 +106,6 @@ $response = json_decode($response);
             </div>
         </div>
         
-
-            <?php }?> 
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
