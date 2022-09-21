@@ -53,10 +53,10 @@
                     </form>
                 </div>    
             </div>
-            <footer class="text-center mb-5">
+            <!-- <footer class="text-center mb-5">
                 <small>Powered by</small>
                 <p><img src="images/medirx-logo.png" width="50"></p>
-            </footer>
+            </footer> -->
         </div>
 
         <!-- Option 1: Bootstrap Bundle with Popper -->

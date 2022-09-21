@@ -24,6 +24,13 @@ function getRow($tableName, $whereclause = null)
     $result = $conn->query($sql)->fetch_assoc();
     return $result;
 }
+function getCustomRows($sql) 
+{
+    # code...
+    global $conn;
+    $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+    return $result;
+}
 function add($tableName, $parameters)
 {
     $keys = implode(',' , array_keys($parameters));

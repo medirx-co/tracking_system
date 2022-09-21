@@ -11,6 +11,8 @@ $data = [
 // print_r($data);
 $response = curlRequest($data);
 $response = json_decode($response);
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,7 +61,16 @@ $response = json_decode($response);
             </div>
           </nav>
 
-        <div class="px-4 my-5">
+        
+            <?php 
+                if(isset($_REQUEST['id'])) {
+                    include('call_back_form.php');
+                }
+            
+            else{ ?>
+
+                   
+          <div class="px-4 my-5">
             <div class="row">                
                    <div class="col-12">
                         <div class="table-responsive shadow">
@@ -97,7 +108,7 @@ $response = json_decode($response);
         </div>
         
 
-    
+            <?php }?> 
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
