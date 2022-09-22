@@ -16,7 +16,7 @@ try {
     if ($th->getMessage() == 'Empty') {
         $_SESSION['msg'] = "Please, enter pincode";
         // echo "<script>alert('error')</script>";
-        header('Location:search.php');
+         header('Location:search.php');
     }
 }
 ?>
@@ -69,7 +69,7 @@ try {
                                         <td>Jill</td>
                                         <td>Smith</td>
                                         <td>
-                                            <a href=""><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
+                                            <a href="tel://9561788670"><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
                                         </td>
                                         <td class="action">
                                             <div>
@@ -81,7 +81,7 @@ try {
                                         <td>Jill</td>
                                         <td>Smith</td>
                                         <td>
-                                            <a href=""><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
+                                            <a href="tel://9561788670"><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
                                         </td>
                                         <td class="action">
                                             <div>

@@ -58,39 +58,42 @@ include_once('functions/helper_function.php');
     
         ?>
     <body>
-        <div class="row justify-content-center align-items-center" style="height: 100vh">
-            
-            <div class="cont col-md-6 col-10 mb-0">        
-                <div class="form">
-                    <form action="" method="post" id="loginForm">
-                        <div class="avatar shadow">
-                            <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="avatar">
-                        </div>
-                        <h3 class="text-center mt-5 mb-3 text-primary">Login</h3>
-                        <div class="pt-3">
-                            <div class="form-group my-3">
-                                <label for="" >Enter Emplyoee Code</label>
-                                <input type="text"class="form-control mt-1" placeholder="" name="username"/>
+        <div class="container">
+            <div class="row justify-content-center align-items-center" style="height: 100vh">
+                
+                <div class="cont col-md-6 col-10 mb-0">        
+                    <div class="form">
+                        <form action="" method="post" id="loginForm">
+                            <div class="avatar shadow">
+                                <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="avatar">
                             </div>
-                            <div class="form-group my-2">
-                                <label for="" >Enter Password</label>
-                                <input type="password" class="mt-1 form-control"placeholder="" name="password"/>
+                            <h3 class="text-center mt-5 mb-3 text-primary">Login</h3>
+                            <div class="pt-3">
+                                <div class="form-group my-3">
+                                    <label for="" >Enter Emplyoee Code</label>
+                                    <input type="text"class="form-control mt-1" placeholder="" name="username"/>
+                                </div>
+                                <div class="form-group my-2">
+                                    <label for="" >Enter Password</label>
+                                    <input type="password" class="mt-1 form-control"placeholder="" name="password"/>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-warning shadow text-white login" name="login">Login</button>
+                                </div>
                             </div>
-                            <div class="text-center mt-3">
-                                <button type="button" class="btn btn-warning shadow text-white login" name="login">Login</button>
-                            </div>
-                        </div>
-                        
-                    </form>
-                </div>    
+                            
+                        </form>
+                    </div>    
+                </div>
+                <footer class="text-center mb-5">
+                    <small>Powered by</small>
+                    <p><img src="images/medirx-logo.png" width="50"></p>
+                </footer>
             </div>
-            <footer class="text-center mb-5">
-                <small>Powered by</small>
-                <p><img src="images/medirx-logo.png" width="50"></p>
-            </footer>
-        </div>
+    
+            <!-- Option 1: Bootstrap Bundle with Popper -->
 
-        <!-- Option 1: Bootstrap Bundle with Popper -->
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
         <script>

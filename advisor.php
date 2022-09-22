@@ -2,8 +2,8 @@
 ob_start();
 session_start();
 $msg = $_SESSION['msg'] ?? null;
+// print_r($_SESSION);
 unset($_SESSION['msg']);
-// print_r($_REQUEST);
 include_once('functions/helper_function.php');
 
 try {
@@ -11,25 +11,24 @@ try {
         $whereClause = "WHERE pincode = $pincode";
         //code...
         $getHq = getRows('`[NUTRITIONAL ADVISOR]`',$whereClause);
-    if(isset($_REQUEST['hq'])) {
-        $hq = $_REQUEST['hq'];
-        $whereClause = "WHERE hq = '".$_REQUEST['hq']."'"; 
-        $result = getRows('`[NUTRITIONAL ADVISOR]`',$whereClause);
-        // print_r($result);
-    } else {
-        $pincode = $_REQUEST['pincode'] ?? throw new Exception("Empty");
-        $whereClause = "WHERE pincode = $pincode";
-        //code...
-        $result = getRows('`[NUTRITIONAL ADVISOR]`',$whereClause);
+        if(isset($_REQUEST['hq'])) {
+            $hq = $_REQUEST['hq'];
+            $whereClause = "WHERE hq = '".$_REQUEST['hq']."'"; 
+            $result = getRows('`[NUTRITIONAL ADVISOR]`',$whereClause);
+            // print_r($result);
+        } else {
+            $pincode = $_REQUEST['pincode'] ?? throw new Exception("Empty");
+            $whereClause = "WHERE pincode = $pincode";
+            //code...
+            $result = getRows('`[NUTRITIONAL ADVISOR]`',$whereClause);
 
-    }
+        }
     // print_r($result);
 } catch (Throwable $th) {
     //throw $th;
     // print_r($th);
     if ($th->getMessage() == 'Empty') {
         $_SESSION['msg'] = "Please, enter pincode";
-        // echo "<script>alert('error')</script>";
         header('Location:search.php');
     }
 }
@@ -66,6 +65,13 @@ try {
                 <input type="hidden" name="pincode" value="<?php echo $pincode?>">
                 <div class="row g-3 align-items-center justify-content-center mt-5">
                     <div class="col-10 col-md-3 form-group">
+                        <?php if(!$getHq){?>
+                            <h3 for="" class="form-label text-danger text-center"><strong>No Data Found</strong></h3>
+                            <p class="text-center text-secondary">Please,wait we are redirecting you..!</p>
+
+                       <?php 
+                            header("Refresh:0.8; url=search.php");
+                    } else { ?>
                         <label for="" class="form-label"><strong>Select Headquater</strong></label>
                         <select class="form-control my-2" name="hq" onchange="this.form.submit()">
                             <option selected disabled>-- select --</option>
@@ -74,6 +80,7 @@ try {
                                     <option <?php echo (($_REQUEST['hq'] ?? null) == $row['hq']) ? "selected" : ""?>><?php echo $row['hq'];?></option>
                                <?php endforeach ;?>
                         </select>
+                    <?php }?>
                     </div>
                     
                 </div>
@@ -94,9 +101,9 @@ try {
                         <form>
                             <div class="row justify-content-center align-items-center text-center mt-5">
                                 <div class="col-md-5 col-10">
-                                    <button type="button" class="make_call btn shadow mt-2 mb-4 p-2 w-100 text-success" style="background:#abf6b4;" call_id = <?php echo $row['id']; ?>>
+                                    <a href="tel://9792417523" type="button" class="make_call btn shadow mt-2 mb-4 p-2 w-100 text-success" style="background:#abf6b4;" call_id = <?php echo $row['id']; ?>>
                                         <img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="25" height="25">Make a Call
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col-md-5 col-10">
                                     <button type="button" class="btn shadow mt-2 mb-4 p-2 w-100 bg-warning request_call" request_call = <?php echo $row['id']; ?>>
@@ -157,10 +164,10 @@ try {
                         // console.log(id);
                         $.ajax({url: "ajax.php?action=call_request&id="+id, 
                             success : (result)=>{
-                                window.location.href = 'search.php'
+                                window.location.href = 'thankyou.php'
                              },
-                            error : (XMLHttpRequest, textStatus, errorThrown) => {
-                                console.log(XMLHttpRequest)}
+                            error : (response) => {
+                                console.log(response)}
                         });
                     });
                 </script>

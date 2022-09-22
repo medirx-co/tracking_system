@@ -101,7 +101,13 @@ try {
         $result = getRows("`[CALL RECORDS]`" , $whereClause);
         $response['result'] = $result ?? throw new Exception("No data found");
     }
-    
+    if($component == 'addUrlVisits') {
+        $parameteres = [
+            'is_url_visit' => 1
+        ];
+        $whereClause = "WHERE id = '".$_REQUEST['id']."'";
+        $result = update('chemists', $parameteres, $whereClause);
+    }
 
     $response['status'] = 'success';
 } catch (\Throwable $th) {

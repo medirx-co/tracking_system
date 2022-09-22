@@ -1,4 +1,31 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+include_once('functions/helper_function.php');
+if(isset($_SESSION['msg'])) {
+    $msg = $_SESSION['msg'];
+    echo "<script>alert($msg)</script>";
+}
+if(isset($_REQUEST['chemId'])) {
+    $data = [
+        'id' => $_REQUEST['chemId'],
+        'component' => "addUrlVisit",
+    ];
+
+    // $data = implode(',' , $data);
+    $headers = array(
+        // 'Cookie: PHPSESSID='.session_id(),
+    );
+
+    
+    $response = curlRequest($data);
+    // echo "hi";
+    $response = json_decode($response);
+    if($response->status == 'success') {
+        // header('Location:call_list.php');
+    } else {
+        echo "<script>alert('Invalid')</script>";
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
