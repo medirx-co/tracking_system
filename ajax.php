@@ -20,14 +20,14 @@ try {
            'date_of_call' => date("Y-m-d")
         ];
         $result = add("call_records", $parameters);
-        print_r((json_encode($result)));
+        $response['result'] = $result;
     } else if ($action == 'call_request') {
         $parameters = [
             'na_id'=> $id, 
             'date_of_call_request' => date("Y-m-d")
          ];
          $result = add("call_records", $parameters);
-         print_r((json_encode($result)));
+        $response['result'] = $result;
     }
     
     if($component == 'adminLogin') {
@@ -101,7 +101,13 @@ try {
         $result = getRows("`[CALL RECORDS]`" , $whereClause);
         $response['result'] = $result ?? throw new Exception("No data found");
     }
-    
+    if($component == 'addUrlVisits') {
+        $parameteres = [
+            'is_url_visit' => 1
+        ];
+        $whereClause = "WHERE id = '".$_REQUEST['id']."'";
+        $result = update('chemists', $parameteres, $whereClause);
+    }
 
     $response['status'] = 'success';
 } catch (\Throwable $th) {

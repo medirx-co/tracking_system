@@ -58,7 +58,22 @@ include_once('functions/helper_function.php');
     
         ?>
     <body>
-        <div class="row justify-content-center align-items-center" style="height: 100vh">
+    <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="image/loader.gif">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center" style="height: 100vh">
             
             <div class="cont col-md-6 col-10 mb-0">        
                 <div class="form">
@@ -66,31 +81,34 @@ include_once('functions/helper_function.php');
                         <div class="avatar shadow">
                             <img src="image/user-profile.png" alt="avatar">
                         </div>
-                        <h3 class="text-center mt-5 mb-3 text-primary">Login</h3>
                         <div class="pt-3">
-                            <div class="form-group my-3">
-                                <label for="" >Enter Emplyoee Code</label>
-                                <input type="text"class="form-control mt-1" placeholder="" name="username"/>
+                            <h3 class="text-center mt-5 mb-3 text-primary">Login</h3>
+                            <div class="pt-3">
+                                <div class="form-group my-3">
+                                    <label for="" >Enter Emplyoee Code</label>
+                                    <input type="text"class="form-control mt-1" placeholder="" name="username"/>
+                                </div>
+                                <div class="form-group my-2">
+                                    <label for="" >Enter Password</label>
+                                    <input type="password" class="mt-1 form-control"placeholder="" name="password"/>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-warning shadow text-white login" name="login">Login</button>
+                                </div>
                             </div>
-                            <div class="form-group my-2">
-                                <label for="" >Enter Password</label>
-                                <input type="password" class="mt-1 form-control"placeholder="" name="password"/>
-                            </div>
-                            <div class="text-center mt-3">
-                                <button type="button" class="btn btn-warning shadow text-white login" name="login">Login</button>
-                            </div>
-                        </div>
-                        
-                    </form>
-                </div>    
+                            
+                        </form>
+                    </div>    
+                </div>
             </div>
+            
             <footer class="text-center mb-5">
                 <small>Powered by</small>
                 <p><img src="images/medirx-logo.png" width="50"></p>
             </footer>
+            <!-- Option 1: Bootstrap Bundle with Popper -->
         </div>
-
-        <!-- Option 1: Bootstrap Bundle with Popper -->
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
         <script>
@@ -132,6 +150,14 @@ include_once('functions/helper_function.php');
                 //     formData = $(e.target).serialize();
                 //     // console.log(formData);
                 // });
+        </script>
+        <script>
+            window.onbeforeunload = (()=>{
+                        $('.loader').css("display","flex");
+                    });
+                    window.onload = () => {
+                        $('.loader').css("display","none");
+                    }
         </script>
     </body>
 </html>

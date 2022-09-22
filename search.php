@@ -1,4 +1,31 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+include_once('functions/helper_function.php');
+if(isset($_SESSION['msg'])) {
+    $msg = $_SESSION['msg'];
+    echo "<script>alert($msg)</script>";
+}
+if(isset($_REQUEST['chemId'])) {
+    $data = [
+        'id' => $_REQUEST['chemId'],
+        'component' => "addUrlVisit",
+    ];
+
+    // $data = implode(',' , $data);
+    $headers = array(
+        // 'Cookie: PHPSESSID='.session_id(),
+    );
+
+    
+    $response = curlRequest($data);
+    // echo "hi";
+    $response = json_decode($response);
+    if($response->status == 'success') {
+        // header('Location:call_list.php');
+    } else {
+        echo "<script>alert('Invalid')</script>";
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -13,7 +40,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="./css/style.css">
+        <!-- <link rel="stylesheet" href="./css/style.css"> -->
         <link rel="stylesheet" href ="css/loginform.css">
 
         <!-- Datatable CSS -->
@@ -31,7 +58,7 @@
                 <img src="/image/1.jpg" alt="" style="width:inherit;">
             </div>
             <div class="content row justify-content-center rounded">
-                <div class="form mt-5 col-12 col-md-4">
+                <div class="mt-5 col-12 col-md-4">
                     <form action="advisor.php" method="get">
                         <div class="form-group">
                             <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode" required/>

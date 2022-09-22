@@ -1,6 +1,6 @@
 <?php
 
-print_r($_REQUEST);
+// print_r($_REQUEST);
 ob_start();
 include_once('functions/helper_function.php');
 if(isset($_REQUEST['isCallBack'])) {
@@ -10,7 +10,7 @@ if(isset($_REQUEST['isCallBack'])) {
             'component' => "callBackStatus",
         ];
         // $data = implode(',' , $data);
-        print_r($data);
+        // print_r($data);
         $headers = array(
             // 'Cookie: PHPSESSID='.session_id(),
         );
@@ -43,7 +43,7 @@ if(isset($_REQUEST['isCallBack'])) {
         
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/loginform.css">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 
@@ -55,15 +55,31 @@ if(isset($_REQUEST['isCallBack'])) {
         </style>
     </head>
     <body>
-        <div class="row justify-content-center align-items-center mt-5" style="height: 100vh">
+    <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="image/loader.gif">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center" style="height: 100vh">
             
-            <div class="shadow col-md-4 col-8 mb-0 p-5">        
+            <div class="shadow col-lg-4 col-10 mb-0 p-5">        
                 <div class="form">
                     <form action="" method="post">
                         <h3 class="text-center mt-3 mb-3 text-dark">Have you called back ?</h3>
                         <div class="pt-3">
                             <div class="row justify-content-center align-items-center mx-4">
-                                <div class="col-6 mt-3 text-center">
+                                <div class="col-md-6 col-12 mt-3 text-center">
                                     <button type="submit" class="btn btn-success shadow text-white w-100 mb-2" name="isCallBack" value="1">Yes</button>
                                     <button type="submit" class="btn btn-danger shadow text-white w-100" name="isCallBack" value="0">No</button>
                                 </div>
@@ -78,6 +94,8 @@ if(isset($_REQUEST['isCallBack'])) {
             </footer> -->
         </div>
 
+        </div>
+        
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         
@@ -90,6 +108,13 @@ if(isset($_REQUEST['isCallBack'])) {
                     x.style.display = "none";
                 }
             }
+
+            window.onbeforeunload = (()=>{
+                        $('.loader').css("display","flex");
+                    });
+                    window.onload = () => {
+                        $('.loader').css("display","none");
+                    }
         </script>
         
     </body>

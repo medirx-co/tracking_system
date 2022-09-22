@@ -110,6 +110,20 @@ if(isset($_REQUEST['id'])) {
        <title>Tracking Demo</title>
     </head>
     <body>
+    <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="../image/loader.gif">
+        </div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark shadow">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
@@ -128,7 +142,7 @@ if(isset($_REQUEST['id'])) {
                     <a class="nav-link text-light" href="#">Export</a>
                   </li>
                   <li class="nav-item float-right">
-                    <a class="navbar-link btn btn-light" href="../logout.php" style="vertical-align:sub"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" width="30"> Log Out</a>
+                    <a class="navbar-link btn btn-light" href="../logout.php?xyiudyd" style="vertical-align:sub"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" width="30"> Log Out</a>
                   </li>    
                 </ul>
               </div>
@@ -339,6 +353,14 @@ const myChart2 = new Chart(ctx2, {
     $(document).ready(function(){
     $('#myTable').dataTable();
 });
+</script>
+<script>
+    window.onbeforeunload = (()=>{
+                $('.loader').css("display","flex");
+            });
+            window.onload = () => {
+                $('.loader').css("display","none");
+            }
 </script>
     </body>
 </html>

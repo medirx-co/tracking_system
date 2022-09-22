@@ -16,7 +16,7 @@ try {
     if ($th->getMessage() == 'Empty') {
         $_SESSION['msg'] = "Please, enter pincode";
         // echo "<script>alert('error')</script>";
-        header('Location:search.php');
+         header('Location:search.php');
     }
 }
 ?>
@@ -44,6 +44,20 @@ try {
         <title>Tracking Demo</title>
     </head>
     <body>
+    <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="image/loader.gif">
+        </div>
         <div class="card mt-3">
             <div class="card-header">
                 <a class="" href="#"><img src="image/shutdown.png" alt="" style="float:right;" width="45" height="45"></a>                
@@ -69,7 +83,7 @@ try {
                                         <td>Jill</td>
                                         <td>Smith</td>
                                         <td>
-                                            <a href=""><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
+                                            <a href="tel://9561788670"><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
                                         </td>
                                         <td class="action">
                                             <div>
@@ -81,7 +95,7 @@ try {
                                         <td>Jill</td>
                                         <td>Smith</td>
                                         <td>
-                                            <a href=""><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
+                                            <a href="tel://9561788670"><img src="https://img.icons8.com/fluency-systems-filled/48/40C057/phone.png" width="35" height="35">7875745246</a>
                                         </td>
                                         <td class="action">
                                             <div>
@@ -98,7 +112,14 @@ try {
             </div>
         </div>
         
-
+        <script>
+            window.onbeforeunload = (()=>{
+                        $('.loader').css("display","flex");
+                    });
+                    window.onload = () => {
+                        $('.loader').css("display","none");
+                    }
+        </script>
     
 
         <!-- Option 1: Bootstrap Bundle with Popper -->

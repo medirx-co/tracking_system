@@ -42,7 +42,6 @@ function add($tableName, $parameters)
     $sql = "INSERT INTO $tableName ($keys) VALUES ('$values')";
     $result = $conn->query($sql);
     $result = $conn->insert_id;
-    $temp = ["query"=>$sql];
     $temp["result"] = $result;
     return $temp;
 }

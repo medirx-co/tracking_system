@@ -38,15 +38,31 @@ if($response->status == 'success') {
         
         <!-- Datatable CSS -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 
         <title>Tracking Demo</title>
     </head>
     <body>
+    <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="image/loader.gif">
+        </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark shadow fixed">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Logo</a>
+              <a class="navbar-brand" href="#"><img src="../image/Danone-Logo.png" class="bg-white" alt="" width="80"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -56,7 +72,7 @@ if($response->status == 'success') {
                     <a class="nav-link" href="call_list.php">Call List</a>
                   </li>
                   <li class="nav-item float-right">
-                    <a class="navbar-link" href="logout.php?xyiudyd" style="vertical-align:sub"><img src="image/shutdown.png" alt="" width="30"></a>
+                    <a class="navbar-link" href="logout.php" style="vertical-align:sub"><img src="image/shutdown.png" alt="" width="30"></a>
                   </li>    
                 </ul>
               </div>
@@ -71,11 +87,12 @@ if($response->status == 'success') {
             <div class="row">                
                    <div class="col-12">
                         <div class="table-responsive shadow">
-                            <table class="table table-responsive-sm" style="width:100%;">
+                            <table id="myTable" class="table table-responsive-sm" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>S.No.</th>
                                         <th>Chemist Name</th>
+                                        <th>Contact Number</th>
                                         <th>Call Request</th>
                                         <th>Call Back Status</th>
                                         <th>Action</th>
@@ -87,6 +104,7 @@ if($response->status == 'success') {
                                             <tr>
                                                 <td><?php echo ++$index;?></td>
                                                 <td><?php echo $row->chemist_name?></td>
+                                                <td><a href="tel://<?php echo ($row->mobile)?>"><i class="bi bi-telephone <?php echo ($row->mobile) ? "text-success" : "d-none"?>"></i> <?php echo $row->mobile?></a></td>
                                                 <td><?php echo $row->date_of_call_request?></td>
                                                 <td class="<?php echo ($row->call_back_date) ?? "text-danger fw-bold"  ?>"><?php echo ($row->call_back_date) ?? "No Call Back"  ?></td>
                                                 <td>
@@ -105,8 +123,19 @@ if($response->status == 'success') {
                 
             </div>
         </div>
-        
-
+        <script>
+            $(document).ready(function(){
+            $('#myTable').dataTable();
+            });
+        </script>
+        <script>
+            window.onbeforeunload = (()=>{
+                        $('.loader').css("display","flex");
+                    });
+                    window.onload = () => {
+                        $('.loader').css("display","none");
+                    }
+        </script>
         <!-- Option 1: Bootstrap Bundle with Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         
