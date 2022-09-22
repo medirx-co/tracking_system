@@ -58,7 +58,7 @@ try {
     </head>
     <body>
         <div class="logo position-fixed">
-            <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="user-profile" width="90" height="90">
+            <img src="image/user-profile.png" alt="user-profile" width="90" height="90">
         </div>
         <h1 class="text-primary mt-5"><u>Nearest Nutritional Advisor</u></h1>
         <div class="p-3">

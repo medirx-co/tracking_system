@@ -56,7 +56,7 @@ if($response->status == 'success') {
                     <a class="nav-link" href="call_list.php">Call List</a>
                   </li>
                   <li class="nav-item float-right">
-                    <a class="navbar-link" href="logout.php?xyiudyd" style="vertical-align:sub"><img src="https://img.icons8.com/sf-black-filled/64/228BE6/shutdown.png" alt="" width="30"></a>
+                    <a class="navbar-link" href="logout.php?xyiudyd" style="vertical-align:sub"><img src="image/shutdown.png" alt="" width="30"></a>
                   </li>    
                 </ul>
               </div>
