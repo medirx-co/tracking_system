@@ -15,17 +15,24 @@
        <link rel="stylesheet" href="css/thankyou.css">
         
        <title>Tracking Demo</title>
+       <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background: rgba(230, 230, 230, 0.821);
+        }
+    </style>
+
     </head>
-    <body style="background: rgba(230, 230, 230, 0.821);">
+    <body>
         <div class="logo mb-2 mt-1 mx-1">
             <img src="image/Danone-Logo.png" alt="logo" width="90" height="60">
         </div>
-        <div class="row justify-content-center align-items-center p-3 mt-5">
+        <div class="row justify-content-center align-items-center m-5">
             <div class="col-md-6">
-                <div class="card mt-5" style="background-image: linear-gradient(to right,#13278ff0,#0f7a9b);border:none ;">
+                <div class="card mt-5 p-5" style="background-image: linear-gradient(to right,#13278ff0,#0f7a9b);border:none ;">
                     <div class="row justify-content-center align-items-center mt-5">
-                        <div class="col-6">
-                            <img src="image/icons8-gift.gif" class="rounded mx-auto d-block" alt="">
+                        <div class="col-6 text-center">
+                            <img src="image/icons8-done.gif" alt="" width="90" height="90">
                         </div>
                     </div>
                     <div class="row justify-content-center align-items-center mt-4">
