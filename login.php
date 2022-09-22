@@ -60,13 +60,14 @@ include_once('functions/helper_function.php');
     <body>
         <div class="container">
             <div class="row justify-content-center align-items-center" style="height: 100vh">
-                
-                <div class="cont col-md-6 col-10 mb-0">        
-                    <div class="form">
-                        <form action="" method="post" id="loginForm">
-                            <div class="avatar shadow">
-                                <img src="https://res.cloudinary.com/merobusts/image/upload/v1518264117/head-659651_640.png" alt="avatar">
-                            </div>
+            
+            <div class="cont col-md-6 col-10 mb-0">        
+                <div class="form">
+                    <form action="" method="post" id="loginForm">
+                        <div class="avatar shadow">
+                            <img src="image/user-profile.png" alt="avatar">
+                        </div>
+                        <div class="pt-3">
                             <h3 class="text-center mt-5 mb-3 text-primary">Login</h3>
                             <div class="pt-3">
                                 <div class="form-group my-3">
