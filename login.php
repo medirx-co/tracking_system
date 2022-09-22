@@ -58,6 +58,20 @@ include_once('functions/helper_function.php');
     
         ?>
     <body>
+    <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="image/loader.gif">
+        </div>
         <div class="container">
             <div class="row justify-content-center align-items-center" style="height: 100vh">
             
@@ -86,14 +100,14 @@ include_once('functions/helper_function.php');
                         </form>
                     </div>    
                 </div>
-                <footer class="text-center mb-5">
-                    <small>Powered by</small>
-                    <p><img src="images/medirx-logo.png" width="50"></p>
-                </footer>
             </div>
-    
+            
+            <footer class="text-center mb-5">
+                <small>Powered by</small>
+                <p><img src="images/medirx-logo.png" width="50"></p>
+            </footer>
             <!-- Option 1: Bootstrap Bundle with Popper -->
-
+        </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -136,6 +150,14 @@ include_once('functions/helper_function.php');
                 //     formData = $(e.target).serialize();
                 //     // console.log(formData);
                 // });
+        </script>
+        <script>
+            window.onbeforeunload = (()=>{
+                        $('.loader').css("display","flex");
+                    });
+                    window.onload = () => {
+                        $('.loader').css("display","none");
+                    }
         </script>
     </body>
 </html>

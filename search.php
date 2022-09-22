@@ -40,7 +40,7 @@ if(isset($_REQUEST['chemId'])) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="./css/style.css">
+        <!-- <link rel="stylesheet" href="./css/style.css"> -->
         <link rel="stylesheet" href ="css/loginform.css">
 
         <!-- Datatable CSS -->
@@ -58,7 +58,7 @@ if(isset($_REQUEST['chemId'])) {
                 <img src="/image/1.jpg" alt="" style="width:inherit;">
             </div>
             <div class="content row justify-content-center rounded">
-                <div class="form mt-5 col-12 col-md-4">
+                <div class="mt-5 col-12 col-md-4">
                     <form action="advisor.php" method="get">
                         <div class="form-group">
                             <input type="number"class="shadow mt-1 form-control border-0" placeholder="Enter Pincode" name="pincode" required/>

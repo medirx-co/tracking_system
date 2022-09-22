@@ -13,6 +13,7 @@
         
         <!-- Custom CSS -->
        <link rel="stylesheet" href="css/thankyou.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
        <title>Tracking Demo</title>
        <style>
@@ -24,6 +25,20 @@
 
     </head>
     <body>
+        <div class="loader"
+        style="position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                botom: 0;
+                bottom: 0;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                backdrop-filter: brightness(0.5);">
+            <img src="image/loader.gif">
+        </div>
         <div class="logo mb-2 mt-1 mx-1">
             <img src="image/Danone-Logo.png" alt="logo" width="90" height="60">
         </div>
@@ -44,6 +59,16 @@
                 </div>  
             </div>
         </div>
-        
+        <div class="text-center">
+            <button class="btn btn-secondary" onclick="history.back(2);">Back</button>            
+        </div>
+        <script>
+            window.onbeforeunload = (()=>{
+                        $('.loader').css("display","flex");
+                    });
+                    window.onload = () => {
+                        $('.loader').css("display","none");
+                    }
+        </script>
     </body>
 </html>
